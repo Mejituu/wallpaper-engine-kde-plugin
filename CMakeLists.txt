@@ -53,13 +53,13 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 if(NOT USE_PLASMAPKG)
     plasma_install_package(plugin com.github.casout.wallpaperEngineKde wallpapers wallpaper)
 else()
-    find_program(PLASMAPKG2 NAMES plasmapkg2)
-    if(${PLASMAPKG2} STREQUAL "PLASMAPKG2-NOTFOUND")
-        message(FATAL_ERROR "plasmapkg2 not found")
+    find_program(KPACKAGETOOL5 NAMES kpackagetool5)
+    if(${PLASMAPKG2} STREQUAL "KPACKAGETOOL5-NOTFOUND")
+        message(FATAL_ERROR "kpackagetool5 not found")
     endif()
 
     add_custom_target(install_pkg
-        COMMAND /bin/sh -c "${PLASMAPKG2} -i ./plugin 2>/dev/null || ${PLASMAPKG2} -u ./plugin"
+        COMMAND /bin/sh -c "${KPACKAGETOOL5} -i ./plugin 2>/dev/null || ${KPACKAGETOOL5} -u ./plugin"
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
         VERBATIM
     )
