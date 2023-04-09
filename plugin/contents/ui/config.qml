@@ -129,13 +129,28 @@ ColumnLayout {
         id: bar
         implicitWidth: font.pixelSize*8 * 3
         PlasmaComponents.TabButton {
-            text: "Wallpapers"
+            contentItem: Text {
+                text: "Wallpapers"
+                color: Theme.Theme.textColor
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
         }
         PlasmaComponents.TabButton {
-            text: "Settings"
+            contentItem: Text {
+                text: "Settings"
+                color: Theme.Theme.textColor
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
         }
         PlasmaComponents.TabButton {
-            text: "About"
+            contentItem: Text {
+                text: "About"
+                color: Theme.Theme.textColor
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
         }
     }
 
