@@ -69,9 +69,6 @@ Every time you receive update in discover, you should run these commands to upda
 git clone https://github.com/catsout/wallpaper-engine-kde-plugin.git
 cd wallpaper-engine-kde-plugin
 
-# Download submodule (glslang)
-git submodule update --init
-
 # Configure
 # 'USE_PLASMAPKG=ON': using plasmapkg2 tool to install plugin
 mkdir build && cd build
