@@ -1,12 +1,15 @@
-# Wallpaper Engine for Kde
+# Wallpaper Engine for KDE
 A wallpaper plugin integrating [wallpaper engine](https://store.steampowered.com/app/431960/Wallpaper_Engine) into kde wallpaper setting.  
 
+
 ## Note
+- This fork has limited support from me, I will accept pull requests with reasonable explanation
 - Known issues:
   - Some scene wallpapers may **crash** your KDE.  
     Remove `WallpaperSource` line in `~/.config/plasma-org.kde.plasma.desktop-appletsrc` and restart KDE to fix.  
   - Mouse long press (to enter panel edit mode) is broken on desktop.
   - Screen Locking is not supported, please not use this plugin in screen locking.  
+  - Some effects are unsupported read [Supported Effects](https://github.com/Jelgnum/wallpaper-engine-kde-plugin/edit/main/README.md#supported)
 - Support **scene(2d)**,**video**,**web** wallpaper types
 - Requires *Wallpaper Engine* installed on steam
 - Requires C++20(gcc 10+)
@@ -108,7 +111,11 @@ Requires *Wallpaper Engine* installed for assets(shaders,pictures...)
 Only for testing and debug  
 Requires glfw  
 ```
-# git clone and init submodule
+# git clone 
+cd wallpaper-engine-kde-plugin
+# init submodule
+git submodule update --init
+
 cd src/backend_scene/standalone_view
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_QML=ON
@@ -117,7 +124,7 @@ make -j$nproc
 ./sceneviewer --help
 ```
 
-#### open-source libraries
+#### Open-source Libraries
 [argparse](https://github.com/p-ranav/argparse) - Command line argument parser  
 [stb](https://github.com/nothings/stb) - Image loading  
 [vog/sha1](https://github.com/vog/sha1) - SHA-1  
@@ -129,7 +136,7 @@ make -j$nproc
 [glslang](https://github.com/KhronosGroup/glslang) - Glsl to Spv  
 [SPIRV-Reflect](https://github.com/KhronosGroup/SPIRV-Reflect) - C/C++ reflection API for SPIR-V bytecode  
 [VulkanMemoryAllocator](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator) - Vulkan memory allocation library  
-#### supported
+#### Supported Effects
 - [x] Layer
 	- [x] Image
 	- [x] Composition / Fullscreen
@@ -142,6 +149,7 @@ make -j$nproc
 	- [x] ColorBlendMode
 	- [x] PBR light
 	- [ ] Global bloom
+	- [ ] HDR
 - [x] Camera
 	- [x] Zoom
 	- [ ] Shake
