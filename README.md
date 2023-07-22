@@ -78,7 +78,8 @@ mkdir build && cd build
 cmake .. -DUSE_PLASMAPKG=ON
 
 # Build
-make -j$nproc
+# warning nproc can cause build issues, if build fails try make -j2
+make -j$(($(nproc)/2))
 
 # Install package (ignore if USE_PLASMAPKG=OFF for system-wide installation)
 make install_pkg
@@ -119,7 +120,8 @@ git submodule update --init
 cd src/backend_scene/standalone_view
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_QML=ON
-make -j$nproc
+# Warning nproc can cause build issues, if build fails try make -j2
+make -j$(($(nproc)/2))
 
 ./sceneviewer --help
 ```
