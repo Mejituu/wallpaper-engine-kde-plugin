@@ -54,7 +54,7 @@ if(NOT USE_PLASMAPKG)
     plasma_install_package(plugin com.github.casout.wallpaperEngineKde wallpapers wallpaper)
 else()
     find_program(KPACKAGETOOL5 NAMES kpackagetool5)
-    if(${PLASMAPKG2} STREQUAL "KPACKAGETOOL5-NOTFOUND")
+    if(${KPACKAGETOOL5} STREQUAL "KPACKAGETOOL5-NOTFOUND")
         message(FATAL_ERROR "kpackagetool5 not found")
     endif()
 
