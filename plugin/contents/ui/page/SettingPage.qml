@@ -44,36 +44,36 @@ Flickable {
 
         OptionGroup {
             Layout.fillWidth: true
-            header.text: 'Common Option'
+            header.text: '通用选项'
             header.text_color: Theme.textColor
             header.icon: '../../images/cheveron-down.svg'
             header.color: Theme.activeBackgroundColor
 
             OptionItem {
-                text: 'Pause'
+                text: '暂停'
                 text_color: Theme.textColor
                 icon: '../../images/pause.svg'
                 actor:  ComboBox {
                     id: pauseMode
                     model: [
                         {
-                            text: "Focus or Maximized Window",
+                            text: "焦点或最大化窗口",
                             value: Common.PauseMode.FocusOrMax
                         },
                         {
-                            text: "Focus Window",
+                            text: "焦点窗口",
                             value: Common.PauseMode.Focus
                         },
                         {
-                            text: "Maximized Window",
+                            text: "最大化窗口",
                             value: Common.PauseMode.Max
                         },
                         {
-                            text: "Any Window",
+                            text: "任何窗口",
                             value: Common.PauseMode.Any
                         },
                         {
-                            text: "Never",
+                            text: "从不",
                             value: Common.PauseMode.Never
                         }
                     ]
@@ -85,27 +85,27 @@ Flickable {
                     Text {
                         Layout.fillWidth: true
                         color: Theme.disabledTextColor
-                        text: "Automatically pauses playback if any/focus/maximized window detected"
+                        text: "如果检测到任何/焦点/最大化窗口，则自动暂停播放"
                         wrapMode: Text.Wrap
                     }
                }
             }
             OptionItem {
-                text: 'Only check window on current screen'
+                text: '只检查当前屏幕上的窗口'
                 text_color: Theme.textColor
                 actor: Switch {
                     id: ckbox_pauseFilterByScreen
                 }
             }
             OptionItem {
-                text: 'Pause if PC is on battery power'
+                text: '如果电脑使用电池供电则暂停'
                 text_color: Theme.textColor
                 actor: Switch {
                     id: chkbox_pauseOnBatPower
                 }
             }
             OptionItem {
-                text: 'Pause if battery level is below'
+                text: '如果电池电量低于则暂停'
                 text_color: Theme.textColor
                 actor: SpinBox {
                         id: spin_pauseBatPercent
@@ -115,22 +115,22 @@ Flickable {
                 }
             }
             OptionItem {
-                text: 'Display'
+                text: '显示'
                 text_color: Theme.textColor
                 icon: '../../images/window.svg'
                 actor: ComboBox {
                     id: displayMode
                     model: [
                         {
-                            text: "Keep Aspect Ratio",
+                            text: "保持长宽比例",
                             value: Common.DisplayMode.Aspect
                         },
                         {
-                            text: "Scale and Crop",
+                            text: "缩放并裁剪",
                             value: Common.DisplayMode.Crop
                         },
                         {
-                            text: "Scale to Fill",
+                            text: "缩放并填充",
                             value: Common.DisplayMode.Scale
                         },
                     ]
@@ -141,7 +141,7 @@ Flickable {
             }
 
             OptionItem {
-                text: 'Resume Time'
+                text: '恢复时间'
                 text_color: Theme.textColor
                 icon: '../../images/timer.svg'
                 actor: RowLayout {
@@ -160,12 +160,12 @@ Flickable {
                     Text {
                         Layout.fillWidth: true
                         color: Theme.disabledTextColor
-                        text: "Time to wait to resume playback from pause"
+                        text: "从暂停恢复播放的等待时间"
                     }
                 }
             }
             OptionItem {
-                text: 'Randomize Timer'
+                text: '随机定时器'
                 text_color: Theme.textColor
                 icon: '../../images/time.svg'
                 actor: Switch {
@@ -175,14 +175,14 @@ Flickable {
                     Text {
                         Layout.fillWidth: true
                         color: Theme.disabledTextColor
-                        text: "Randomize wallpapers filtered in the 'Wallpapers' page"
+                        text: "随机化“壁纸”页面中过滤的壁纸"
                     }
                     RowLayout {
                         Layout.fillWidth: true
                         visible: ckbox_randomizeWallpaper.checked
                         Label { 
                             id:heightpicker
-                            text: "Randomize every " 
+                            text: "随机化每个 "
                         }
                         SpinBox {
                             id: randomSpin
@@ -191,14 +191,14 @@ Flickable {
                             to: 60*24*30
                             stepSize: 1
                         }
-                        Label { text: " min" }
+                        Label { text: " 分钟" }
                         Item { Layout.fillWidth: true }
                     }
                 }
             }
 
             OptionItem {
-                text: "Playback Speed"
+                text: "播放速度"
                 text_color: Theme.textColor
                 icon: '../../images/fast-forward.svg'
                 actor: RowLayout {
@@ -213,7 +213,7 @@ Flickable {
 
 
             OptionItem {
-                text: "Mute Audio"
+                text: "静音"
                 text_color: Theme.textColor
                 icon: ckbox_muteAudio.checked
                     ? '../../images/volume-off.svg'
@@ -223,7 +223,7 @@ Flickable {
                 }
             }
             OptionItem {
-                text: "Volume"
+                text: "音量"
                 text_color: Theme.textColor
                 visible: !cfg_MuteAudio
                 actor: RowLayout {
@@ -246,7 +246,7 @@ Flickable {
             OptionItem {
                 visible: libcheck.wallpaper
                 text_color: Theme.textColor
-                text: "Mouse Input"
+                text: "鼠标输入"
                 icon: '../../images/mouse.svg'
                 actor: Switch {
                     id: ckbox_mouseInput
@@ -257,13 +257,13 @@ Flickable {
         OptionGroup {
             Layout.fillWidth: true
 
-            header.text: 'Video Option'
+            header.text: '视频选项'
             header.text_color: Theme.textColor
             header.icon: '../../images/cheveron-down.svg'
             header.color: Theme.activeBackgroundColor
 
             OptionItem {
-                text: 'Video Backend'
+                text: '视频后端'
                 text_color: Theme.textColor
                 icon: '../../images/plugin.svg'
                 actor: ComboBox {
@@ -286,7 +286,7 @@ Flickable {
             }
             
             OptionItem {
-                text: 'Show Mpv Stats'
+                text: '显示 Mpv 统计数据'
                 text_color: Theme.textColor
                 icon: '../../images/information-outline.svg'
                 visible: cfg_VideoBackend == Common.VideoBackend.Mpv
@@ -298,14 +298,14 @@ Flickable {
         OptionGroup {
             Layout.fillWidth: true
 
-            header.text: 'Scene Option'
+            header.text: '场景选项'
             header.text_color: Theme.textColor
             header.icon: '../../images/cheveron-down.svg'
             header.color: Theme.activeBackgroundColor
             visible: libcheck.wallpaper
 
             OptionItem {
-                text: 'Fps'
+                text: '帧率'
                 text_color: Theme.textColor
                 icon: '../../images/tuning.svg'
                 actor: RowLayout {
@@ -326,13 +326,13 @@ Flickable {
                     Text {
                         Layout.fillWidth: true
                         color: Theme.disabledTextColor
-                        text: "Low: 10, Medium: 15, High: 25, Ultra High: 30"
+                        text: "低：10，中：15，高：25，超高：30"
                     }
                 }
 
             }
             OptionItem {
-                text: 'Shader cache'
+                text: '着色器缓存'
                 text_color: Theme.textColor
                 icon: '../../images/information-outline.svg'
                 actor: Kirigami.ActionToolBar {
@@ -341,8 +341,8 @@ Flickable {
                     flat: false
                     actions: [
                         Kirigami.Action {
-                            text: 'Show'
-                            tooltip: 'Show in file manager'
+                            text: '显示'
+                            tooltip: '在文件管理器中显示'
                             onTriggered: {
                                 if(plugin_info.cache_path)
                                     Qt.openUrlExternally(plugin_info.cache_path);
@@ -358,7 +358,7 @@ Flickable {
                         color: Theme.disabledTextColor
                         text: plugin_info.cache_path
                         ? `${cache_path} - ${cache_size}`
-                        : `Not available`
+                        : `无法使用`
 
                         property string cache_size: {
                             if(pyext) {

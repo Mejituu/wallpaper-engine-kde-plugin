@@ -26,7 +26,7 @@ Flickable {
         anchors.right: parent.right
 
         OptionItem {
-            text: 'Requirements'
+            text: '要求'
             text_color: Theme.textColor
             icon: '../../images/information-outline.svg'
 
@@ -36,16 +36,16 @@ Flickable {
                     color: Theme.disabledTextColor
                     text: `
                         <ol>
-                        <li><i>Wallpaper Engine</i> installed on Steam</li>
-                        <li>Subscribe to some wallpapers on the Workshop</li>
-                        <li>Select the <i>steamlibrary</i> folder on the Wallpapers tab of this plugin
+                        <li><i>Wallpaper Engine</i> 安装在 Steam 上</li>
+                        <li>订阅创意工坊的一些壁纸</li>
+                        <li>选择此插件“壁纸”选项卡上的 <i>steamlibrary</i> 文件夹
                             <ul>
-                                <li>The <i>steamlibrary</i> which contains the <i>steamapps</i> folder
+                                <li>包含 <i>steamapps</i> 文件夹的 <i>steamlibrary</i>
                                     <ul>
-                                        <li>This is usually <i>~/.local/share/Steam</i> by default</li>
+                                        <li>默认情况下通常是 <i>~/.local/share/Steam</i></li>
                                     </ul>
                                 </li>
-                                <li><i>Wallpaper Engine</i> needs to be installed in this <i>steamlibrary</i></li>
+                                <li><i>Wallpaper Engine</i> 需要安装在 <i>steamlibrary</i> 中 </li>
                             </ul>
                         </li>
                         </ol>
@@ -58,7 +58,7 @@ Flickable {
         OptionItem {
             visible: libcheck.wallpaper
 
-            text: 'Fix Crashes'
+            text: '修复崩溃'
             text_color: Theme.textColor
             icon: '../../images/information-outline.svg'
             contentBottom: ColumnLayout {
@@ -67,8 +67,8 @@ Flickable {
                     color: Theme.disabledTextColor
                     text: `
                         <ol>
-                        <li>Remove <i>WallpaperSource</i> line in <b>~/.config/plasma-org.kde.plasma.desktop-appletsrc</b></li>
-                        <li>Restart KDE</li>
+                        <li>删除 <i>WallpaperSource</i> 行 <b>~/.config/plasma-org.kde.plasma.desktop-appletsrc</b></li>
+                        <li>重启 KDE</li>
                         </ol>
                     `
                     wrapMode: Text.Wrap
@@ -78,7 +78,7 @@ Flickable {
         }
         OptionItem {
             icon: '../../images/github.svg'
-            text: 'Github Repo'
+            text: 'Github 仓库'
             text_color: Theme.textColor
             MouseArea {
                 anchors.fill: parent
@@ -89,7 +89,7 @@ Flickable {
         }
 
         OptionItem {
-            text: 'Version'
+            text: '版本'
             text_color: Theme.textColor
             icon: '../../images/tag.svg'
             contentBottom: ColumnLayout {
@@ -98,11 +98,11 @@ Flickable {
                     color: Theme.disabledTextColor
                     text: `
                         <ul>
-                        <li>plugin: ${Common.version}</li>
-                        <li>plugin lib: ${plugin_info.version}</li>
-                        ${Common.version != plugin_info.version ? "<br><b>warning: The lib version is inconsistent with the plugin version</b>" : ""}
-                        <li>kde: ${Qt.application.version}</li>
-                        <li>python: ${pyext ? pyext.version : '-'}</li>
+                        <li>插件: ${Common.version}</li>
+                        <li>插件库: ${plugin_info.version}</li>
+                        ${Common.version != plugin_info.version ? "<br><b>警告：库版本与插件版本不一致</b>" : ""}
+                        <li>KDE: ${Qt.application.version}</li>
+                        <li>Python: ${pyext ? pyext.version : '-'}</li>
                         </ul>
                     `
                     wrapMode: Text.Wrap
@@ -112,7 +112,7 @@ Flickable {
         }
  
         OptionItem {
-            text: 'Lib Checking'
+            text: '库检查'
             text_color: Theme.textColor
             icon: '../../images/checkmark.svg'
             contentBottom: ListView {

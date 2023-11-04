@@ -130,7 +130,7 @@ ColumnLayout {
         implicitWidth: font.pixelSize*8 * 3
         PlasmaComponents.TabButton {
             contentItem: Text {
-                text: "Wallpapers"
+                text: "壁纸"
                 color: Theme.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -138,7 +138,7 @@ ColumnLayout {
         }
         PlasmaComponents.TabButton {
             contentItem: Text {
-                text: "Settings"
+                text: "设置"
                 color: Theme.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -146,7 +146,7 @@ ColumnLayout {
         }
         PlasmaComponents.TabButton {
             contentItem: Text {
-                text: "About"
+                text: "关于"
                 color: Theme.Theme.textColor
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

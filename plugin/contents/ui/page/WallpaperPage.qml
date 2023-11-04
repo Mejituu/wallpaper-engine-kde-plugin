@@ -46,7 +46,7 @@ RowLayout {
 
                 Label {
                     visible: cfg_WallpaperWorkShopId
-                    text: `Shopid: ${cfg_WallpaperWorkShopId}  Type: ${Common.unpackWallpaperSource(cfg_WallpaperSource).type}`
+                    text: `Workshop Id: ${cfg_WallpaperWorkShopId}  类型: ${Common.unpackWallpaperSource(cfg_WallpaperSource).type}`
                     //${cfg_WallpaperType}
                 }
 
@@ -96,13 +96,13 @@ RowLayout {
                         Kirigami.Action {
                             icon.source: '../../images/folder-outline.svg'
                             icon.color: Theme.textColor
-                            text: 'Library'
-                            tooltip: cfg_SteamLibraryPath ? cfg_SteamLibraryPath : 'Select steam library dir'
+                            text: '库'
+                            tooltip: cfg_SteamLibraryPath ? cfg_SteamLibraryPath : '选择 Steam 库目录'
                             onTriggered: wpDialog.open()
                         },
                         Kirigami.Action {
                             id: action_cb_filter
-                            text: 'Filter'
+                            text: '筛选'
                             icon.source: '../../images/filter.svg'
                             icon.color: Theme.textColor
                             property int currentIndex
@@ -123,17 +123,17 @@ RowLayout {
                             property int currentIndex: Common.modelIndexOfValue(model, cfg_SortMode)
                             readonly property var model: [
                                 {
-                                    text: "Sort By Workshop Id",
+                                    text: "按 Workshop Id 排序",
                                     short: "Id",
                                     value: Common.SortMode.Id
                                 },
                                 {
-                                    text: "Sort Alphabetically By Name",
+                                    text: "按名称字母顺序排序",
                                     short: "Alphabetical",
                                     value: Common.SortMode.Name
                                 },
                                 {
-                                    text: "Show Newest Modified First",
+                                    text: "按最新修改排序",
                                     short: "Modified",
                                     value: Common.SortMode.Modified
                                 }
@@ -143,7 +143,7 @@ RowLayout {
                         Kirigami.Action {
                             icon.source: '../../images/refresh.svg'
                             icon.color: Theme.textColor
-                            text: 'Refresh'
+                            text: '刷新'
                             onTriggered: wpListModel.refresh()
                         }
                     ]
@@ -193,12 +193,12 @@ RowLayout {
                         actions: [
                             Kirigami.Action {
                                 icon.name: favor?"user-bookmarks-symbolic":"bookmark-add-symbolic"
-                                tooltip: favor?"Remove from favorites":"Add to favorites"
+                                tooltip: favor?"从收藏夹中删除":"添加到收藏夹"
                                 onTriggered: picViewLoader.item.toggleFavor(model, index)
                             },
                             Kirigami.Action {
                                 icon.name: "folder-remote-symbolic"
-                                tooltip: "Open Workshop Link"
+                                tooltip: "打开 Workshop 链接"
                                 enabled: workshopid.match(Common.regex_workshop_online)
                                 onTriggered: Qt.openUrlExternally(Common.getWorkshopUrl(workshopid))
                             }
@@ -244,15 +244,15 @@ RowLayout {
                         level: 2
                         text: { 
                             if(!(libcheck.qtwebsockets && pyext))
-                                return `Please make sure qtwebsockets(qml module) installed, and open this again`
+                                return `请确保已安装 qtwebsockets(qml 模块)，然后再次打开`
                             if(!pyext.ok) {
-                                return `Python helper run failed: ${pyext.log}`;
+                                return `Python 帮助程序运行失败: ${pyext.log}`;
                             }
                             if(!cfg_SteamLibraryPath)
-                                return "Select your steam library through the folder selecting button above";
+                                return "通过上面的文件夹选择按钮选择您的 Steam 库";
                             if(wpListModel.countNoFilter > 0)
-                                return `Found ${wpListModel.countNoFilter} wallpapers, but none of them matched filters`;
-                            return `There are no wallpapers in steam library`;
+                                return `找到 ${wpListModel.countNoFilter} 张壁纸，但没有一个与筛选匹配`;
+                            return `Steam 库里没有壁纸`;
                         }
                         opacity: 0.5
                     }
@@ -299,7 +299,7 @@ RowLayout {
 
             FileDialog {
                 id: wpDialog
-                title: "Select steamlibrary folder"
+                title: "选择 steamlibrary 文件夹"
                 selectFolder: true
                 selectMultiple : false
                 nameFilters: [ "All files (*)" ]
@@ -449,19 +449,19 @@ RowLayout {
                                     ? '../../images/bookmark.svg'
                                     : '../../images/bookmark-outline-add.svg'
                                 tooltip: right_content.wpmodel.favor
-                                    ? 'Remove from favorites'
-                                    : 'Add to favorites'
+                                    ? '从收藏夹中删除'
+                                    : '添加到收藏夹'
                                 onTriggered: picViewLoader.item.toggleFavor(right_content.wpmodel)
                             },
                             Kirigami.Action {
                                 icon.source: '../../images/link.svg'
-                                tooltip: "Open Workshop Link"
+                                tooltip: "打开 Workshop 链接"
                                 enabled: right_content.wpmodel.workshopid.match(Common.regex_workshop_online)
                                 onTriggered: Qt.openUrlExternally(Common.getWorkshopUrl(right_content.wpmodel.workshopid))
                             },
                             Kirigami.Action {
                                 icon.source: '../../images/folder-outline.svg'
-                                tooltip: "Open Containing Folder"
+                                tooltip: "打开包含文件夹"
                                 onTriggered: Qt.openUrlExternally(right_content.wpmodel.path) 
                             }
                         ]
@@ -611,7 +611,7 @@ RowLayout {
                         return config.hasOwnProperty(key) || in_config_changes(key);
                     }
 
-                    header.text: 'Option'
+                    header.text: '选项'
                     header.text_color: Theme.textColor
                     header.icon: '../../images/cheveron-down.svg'
                     header.color: Theme.activeBackgroundColor
@@ -622,7 +622,7 @@ RowLayout {
                         flat: true
                         actions: [
                             Kirigami.Action {
-                                text: 'Reset'
+                                text: '重置'
                                 onTriggered: {
                                     right_opts.reset_config();
                                 }
@@ -634,21 +634,21 @@ RowLayout {
                         model: [
                             {
                                 mark_: markModel,
-                                text: 'Display',
+                                text: '显示',
                                 config_key: 'display_mode',
                                 comp: right_opt_combox,
                                 props: {
                                     model: [
                                         {
-                                            text: "Keep Aspect Ratio",
+                                            text: "保持长宽比例",
                                             value: Common.DisplayMode.Aspect
                                         },
                                         {
-                                            text: "Scale and Crop",
+                                            text: "缩放并裁剪",
                                             value: Common.DisplayMode.Crop
                                         },
                                         {
-                                            text: "Scale to Fill",
+                                            text: "缩放并填充",
                                             value: Common.DisplayMode.Scale
                                         },
                                     ],
@@ -656,7 +656,7 @@ RowLayout {
                                 }
                             },
                             {
-                                text: 'Mute Audio',
+                                text: '静音',
                                 config_key: 'mute_audio',
                                 comp: right_opt_switch,
                                 props: {
@@ -664,7 +664,7 @@ RowLayout {
                                 },
                             },
                             {
-                                text: 'Volume',
+                                text: '音量',
                                 config_key: 'volume', 
                                 comp: right_opt_spinbox,
                                 props: {
@@ -675,7 +675,7 @@ RowLayout {
                                 },
                             },
                             {
-                                text: 'Speed',
+                                text: '播放速度',
                                 config_key: 'speed', 
                                 comp: right_opt_dspinbox,
                                 props: {
